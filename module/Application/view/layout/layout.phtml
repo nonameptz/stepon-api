@@ -1,0 +1,21 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <?php
+    echo $this->headTitle('KALEVALA');
+    echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0');
+    echo $this->headLink(['rel' => 'icon', 'type' => 'image/png', 'href' => $this->basePath('/img/favicon.png')])
+              ->prependStylesheet($this->basePath('/assets/css/index.min.css'));
+    echo $this->headScript()->appendFile('https://code.jquery.com/jquery-3.2.1.min.js');
+    ?>
+</head>
+<body>
+<div class="site-wrapper">
+    <div class="site-wrapper-inner">
+        <?= $this->content; ?>
+    </div>
+</div>
+<?= $this->inlineScript() ?>
+</body>
+</html>

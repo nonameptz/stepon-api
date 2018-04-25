@@ -1,0 +1,66 @@
+<?php
+/**
+ * Local Configuration Override
+ *
+ * This configuration override file is for overriding environment-specific and
+ * security-sensitive configuration information. Copy this file without the
+ * .dist extension at the end and populate values as needed.
+ *
+ * @NOTE: This file is ignored from Git by default with the .gitignore included
+ * in ZendSkeletonApplication. This is a good practice, as it prevents sensitive
+ * credentials from accidentally being committed into version control.
+ */
+
+return [
+    'doctrine' => [
+        'connection' => [
+            'orm_default' => [
+                'driverClass' => 'Doctrine\\DBAL\\Driver\\PDOMySql\\Driver',
+                'params'      => [
+                    'host'     => 'localhost',
+                    'port'     => '3306',
+                    'dbname'   => 'stepon',
+                    'user'     => '',
+                    'password' => '',
+                    'charset'  => 'utf8',
+                ],
+            ],
+        ],
+    ],
+    'zf-oauth2'   => [
+        'db'              => [
+            'dsn_type' => 'PDO',
+            'dsn'      => 'mysql:host=localhost;dbname=stepon',
+            'username' => 'stepon',
+            'password' => '',
+        ],
+    ],
+    'zf-mvc-auth' => [
+        'authentication' => [
+            'adapters' => [
+                'oauth2_pdo' => [
+                    'adapter' => 'ZF\\MvcAuth\\Authentication\\OAuth2Adapter',
+                    'storage' => [
+                        'adapter'  => 'pdo',
+                        'dsn'      => 'mysql:host=localhost;dbname=stepon',
+                        'route'    => '/oauth',
+                        'username' => 'stepon',
+                        'password' => '',
+                    ],
+                ],
+            ],
+        ],
+    ],
+    'app' => [
+        'host' => ,
+    ],
+    'php_mail'     => [
+        'host'     => '',
+        'username' => '',
+        'password' => '',
+        'from'     => '',
+        'domainDKIM'        => '',
+        'selectorDKIM' => '',
+        'privateStringDKIM' => '',
+    ],
+];
